@@ -10,15 +10,12 @@ import java.util.Optional;
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
 
     // Buscar por CPF
-    Optional<Consulta> findByCpf(String cpf);
-    boolean existsByCpf(String cpf);
+    Optional<Consulta> findBycpfProfissional(String cpfProfissional);
+    boolean existsBycpfProfissional(String cpfProfissional);
 
     // Buscar por Cartão SUS
-    Optional<Consulta> findByCartaoSUS(String cartaoSUS);
-    boolean existsByCartaoSUS(String cartaoSUS);
+    Optional<Consulta> findBycartaoSUSConsulta(String cartaoSUSConsulta);
+    boolean existsBycartaoSUSConsulta(String cartaoSUSConsulta);
 
-    // Buscar por telefone
-    Optional<Consulta> findByTelefone(String telefone);
-    boolean existsByTelefone(String telefone);
 }
 

@@ -23,11 +23,11 @@ public class GerenciadorConsultas {
             Consulta novoConsulta = new Consulta(cartaoSUSConsulta, dataHora, cpfProfissional, especialidadeConsulta, local, 
                                                 motivoConsulta, observacoes, diagnosticoCondicao);
 
-            if (ConsultaRepository.existsByCpf(novoConsulta.getCpfProfissional())) {
+            if (ConsultaRepository.existsBycpfProfissional(novoConsulta.getCpfProfissional())) {
                 System.err.println("Consulta com CPF já existe.");
                 return false;
             }
-            if (ConsultaRepository.existsByCartaoSUS(novoConsulta.getCartaoSUSConsulta())) {
+            if (ConsultaRepository.existsBycartaoSUSConsulta(novoConsulta.getCartaoSUSConsulta())) {
                 System.err.println("Consulta com Cartão SUS já existe.");
                 return false;
             }
@@ -49,7 +49,7 @@ public class GerenciadorConsultas {
             return Optional.empty();
         }
         String cartaoSUSNormalizado = cartaoSUS.replaceAll("[^0-9]", "");
-        return ConsultaRepository.findByCartaoSUS(cartaoSUSNormalizado);
+        return ConsultaRepository.findBycartaoSUSConsulta(cartaoSUSNormalizado);
     }
 
     public Optional<Consulta> buscarConsultaPorCPF(String cpf) {
@@ -57,7 +57,7 @@ public class GerenciadorConsultas {
             return Optional.empty();
         }
         String cpfNormalizado = cpf.replaceAll("[^0-9]", "");
-        return ConsultaRepository.findByCpf(cpfNormalizado);
+        return ConsultaRepository.findBycpfProfissional(cpfNormalizado);
     }
 
     public List<Consulta> getTodosConsultas() {
@@ -73,7 +73,7 @@ public class GerenciadorConsultas {
         }
 
         String cartaoSUSOriginalNormalizado = cartaoSUSOriginal.replaceAll("[^0-9]", "");
-        Optional<Consulta> ConsultaExistenteOpt = ConsultaRepository.findByCartaoSUS(cartaoSUSOriginalNormalizado);
+        Optional<Consulta> ConsultaExistenteOpt = ConsultaRepository.findBycartaoSUSConsulta(cartaoSUSOriginalNormalizado);
         if (ConsultaExistenteOpt.isEmpty()) {
             System.err.println("Consulta com Cartão SUS original não encontrado para atualização.");
             return false;
@@ -82,11 +82,11 @@ public class GerenciadorConsultas {
         Consulta ConsultaExistente = ConsultaExistenteOpt.get();
 
         // Verifica se novo CPF ou novo CartaoSUS estão duplicados (se forem diferentes dos atuais)
-        if (novoCPF != null && !novoCPF.equals(ConsultaExistente.getCpfProfissional()) && ConsultaRepository.existsByCpf(novoCPF)) {
+        if (novoCPF != null && !novoCPF.equals(ConsultaExistente.getCpfProfissional()) && ConsultaRepository.existsBycpfProfissional(novoCPF)) {
             System.err.println("Novo CPF já existe para outro Consulta.");
             return false;
         }
-        if (novoCartaoSUS != null && !novoCartaoSUS.equals(ConsultaExistente.getCartaoSUSConsulta()) && ConsultaRepository.existsByCartaoSUS(novoCartaoSUS)) {
+        if (novoCartaoSUS != null && !novoCartaoSUS.equals(ConsultaExistente.getCartaoSUSConsulta()) && ConsultaRepository.existsBycartaoSUSConsulta(novoCartaoSUS)) {
             System.err.println("Novo Cartão SUS já existe para outro Consulta.");
             return false;
         }
@@ -105,7 +105,7 @@ public class GerenciadorConsultas {
             return false;
         }
         String cartaoSUSNormalizado = cartaoSUS.replaceAll("[^0-9]", "");
-        Optional<Consulta> ConsultaOpt = ConsultaRepository.findByCartaoSUS(cartaoSUSNormalizado);
+        Optional<Consulta> ConsultaOpt = ConsultaRepository.findBycartaoSUSConsulta(cartaoSUSNormalizado);
         if (ConsultaOpt.isEmpty()) {
             System.out.println("Nenhum Consulta encontrado com Cartão SUS " + cartaoSUS + " para remoção.");
             return false;
@@ -121,7 +121,7 @@ public class GerenciadorConsultas {
             return false;
         }
         String cpfNormalizado = cpf.replaceAll("[^0-9]", "");
-        Optional<Consulta> ConsultaOpt = ConsultaRepository.findByCpf(cpfNormalizado);
+        Optional<Consulta> ConsultaOpt = ConsultaRepository.findBycpfProfissional(cpfNormalizado);
         if (ConsultaOpt.isEmpty()) {
             System.out.println("Nenhum Consulta encontrado com CPF " + cpf + " para remoção.");
             return false;
