@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+
+
+
 @Entity
 public class Consulta {
 
@@ -55,6 +58,9 @@ public class Consulta {
         //this.itensPrescricao = (itensPrescricao != null) ? new ArrayList<>(itensPrescricao) : new ArrayList<>();
     }
 
+    public Consulta() {
+    // Construtor necessário para o Jackson
+}
     public Consulta(String cartaoSUSConsulta2, LocalDate dataHora2, String cpfProfissional2,
             String especialidadeConsulta2, String local2, String motivoConsulta2, String observacoes2,
             String diagnosticoCondicao2) {
