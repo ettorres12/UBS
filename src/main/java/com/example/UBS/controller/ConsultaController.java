@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Consultas")
-@CrossOrigin(origins = "*") // Permite acesso do frontend (ajuste conforme necessário)
+@RequestMapping("/api/consultas")
+@CrossOrigin(origins = "*") 
 public class ConsultaController {
 
     @Autowired

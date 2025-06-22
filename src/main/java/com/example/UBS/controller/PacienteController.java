@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pacientes")
-@CrossOrigin(origins = "*") // Permite acesso do frontend (ajuste conforme necessário)
+@CrossOrigin(origins = "*") 
 public class PacienteController {
 
     @Autowired
