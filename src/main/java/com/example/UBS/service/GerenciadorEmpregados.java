@@ -20,9 +20,9 @@ public class GerenciadorEmpregados {
     }
 
     public boolean adicionarEmpregado(String nome, LocalDate dataNascimento, String cpf,
-                                     String genero, String telefone, String registro) {
+                                     String genero, String telefone, String registro, String funcao) {
         try {
-            Empregado novoEmpregado = new Empregado(nome, dataNascimento, cpf, genero, telefone, registro);
+            Empregado novoEmpregado = new Empregado(nome, dataNascimento, cpf, genero, telefone, registro, funcao);
 
             // Aqui podemos fazer verificações se já existe Empregado com CPF ou Registro
             if (EmpregadoRepository.existsByCpf(novoEmpregado.getCpf())) {
@@ -67,7 +67,7 @@ public class GerenciadorEmpregados {
     }
 
     public boolean atualizarEmpregado(String registroOriginal, String novoNome, LocalDate novaDataNascimento,
-                                     String novoCPF, String novoRegistro, String novoGenero, String novoTelefone) {
+                                     String novoCPF, String novoRegistro, String novoGenero, String novoTelefone, String novoFuncao) {
         if (registroOriginal == null || registroOriginal.trim().isEmpty()) {
             System.err.println("registro original é obrigatório para atualização.");
             return false;
@@ -99,6 +99,7 @@ public class GerenciadorEmpregados {
         EmpregadoExistente.setRegistro(novoRegistro);
         EmpregadoExistente.setGenero(novoGenero);
         EmpregadoExistente.setTelefone(novoTelefone);
+        EmpregadoExistente.setFuncao(novoFuncao);
 
         EmpregadoRepository.save(EmpregadoExistente);
         System.out.println("Empregado atualizado com sucesso.");

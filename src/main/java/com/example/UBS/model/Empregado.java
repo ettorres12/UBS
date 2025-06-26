@@ -18,18 +18,20 @@ public class Empregado {
     private String genero;
     private String telefone;
     private String registro;
+    private String funcao;
 
     public Empregado() {
     }
 
     public Empregado(String nome, LocalDate dataNascimento, String cpf,
-                    String genero, String telefone, String registro) {
+                    String genero, String telefone, String registro, String funcao) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.setCpf(cpf);
         this.genero = genero;
         this.telefone = telefone;
         this.registro = registro;
+        this.funcao = funcao;
     }
 
     public Long getId() {
@@ -46,6 +48,14 @@ public class Empregado {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 
     public LocalDate getDataNascimento() {

@@ -35,6 +35,7 @@ public class EmpregadoService {
                     Empregado.setGenero(novoEmpregado.getGenero());
                     Empregado.setTelefone(novoEmpregado.getTelefone());
                     Empregado.setRegistro(novoEmpregado.getRegistro());
+                    Empregado.setFuncao(novoEmpregado.getFuncao());
                     return EmpregadoRepository.save(Empregado);
                 }).orElseThrow(() -> new RuntimeException("Empregado não encontrado com ID: " + id));
     }
