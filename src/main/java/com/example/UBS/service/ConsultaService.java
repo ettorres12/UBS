@@ -13,7 +13,7 @@ public class ConsultaService {
 
     @Autowired
     private ConsultaRepository ConsultaRepository;
-
+  
     public List<Consulta> listarTodos() {
         return ConsultaRepository.findAll();
     }

@@ -19,5 +19,5 @@ public interface EmpregadoRepository extends JpaRepository<Empregado, Long> {
     // Buscar por telefone
     Optional<Empregado> findByTelefone(String telefone);
     boolean existsByTelefone(String telefone);
-}
+}  
 

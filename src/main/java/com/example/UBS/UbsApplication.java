@@ -9,5 +9,5 @@ public class UbsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UbsApplication.class, args);
 	}
-
+  
 }

@@ -21,4 +21,4 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
     Optional<Paciente> findByTelefone(String telefone);
     boolean existsByTelefone(String telefone);
 }
-
+  

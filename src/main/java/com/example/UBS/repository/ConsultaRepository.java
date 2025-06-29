@@ -16,6 +16,6 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
     // Buscar por Cartão SUS
     Optional<Consulta> findBycartaoSUSConsulta(String cartaoSUSConsulta);
     boolean existsBycartaoSUSConsulta(String cartaoSUSConsulta);
-
+  
 }
 

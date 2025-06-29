@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/consultas")
 @CrossOrigin(origins = "*") 
 public class ConsultaController {
-
+  
     @Autowired
     private ConsultaService ConsultaService;
 

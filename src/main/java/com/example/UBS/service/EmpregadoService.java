@@ -13,7 +13,7 @@ public class EmpregadoService {
 
     @Autowired
     private EmpregadoRepository EmpregadoRepository;
-
+  
     public List<Empregado> listarTodos() {
         return EmpregadoRepository.findAll();
     }

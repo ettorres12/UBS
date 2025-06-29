@@ -12,7 +12,7 @@ import java.util.Optional;
 public class GerenciadorConsultas {
 
     private final ConsultaRepository ConsultaRepository;
-
+  
     public GerenciadorConsultas(ConsultaRepository ConsultaRepository) {
         this.ConsultaRepository = ConsultaRepository;
     }

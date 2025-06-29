@@ -4,7 +4,7 @@ FROM maven:3.8.6-eclipse-temurin-17 AS build
 
 
 WORKDIR /app
-
+  
 # Copia arquivos de configuração e código
 COPY pom.xml .
 COPY src ./src

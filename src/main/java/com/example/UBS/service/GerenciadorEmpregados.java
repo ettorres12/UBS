@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class GerenciadorEmpregados {
-
+  
     private final EmpregadoRepository EmpregadoRepository;
 
     // Injeção via construtor

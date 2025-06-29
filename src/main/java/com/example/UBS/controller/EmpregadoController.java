@@ -16,7 +16,7 @@ public class EmpregadoController {
 
     @Autowired
     private EmpregadoService EmpregadoService;
-
+  
     @GetMapping
     public List<Empregado> listarTodos() {
         return EmpregadoService.listarTodos();

@@ -11,7 +11,7 @@ public class Empregado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+  
     private String nome;
     private LocalDate dataNascimento;
     private String cpf;

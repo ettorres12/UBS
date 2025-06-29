@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class GerenciadorPacientes {
-
+  
     private final PacienteRepository pacienteRepository;
 
     // Injeção via construtor
